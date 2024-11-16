@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GraphQL Client</title>
-    <script src="https://unpkg.com/graphql-request@latest/dist/graphql-request.min.js"></script>
+    <script src="client.js" defer></script>
 </head>
 <body>
 <h1>GraphQL Client</h1>
@@ -11,6 +12,16 @@
     <h2>Query Flights</h2>
     <button id="queryFlightsButton">Get Flights</button>
     <ul id="flightsList"></ul>
+</div>
+<div>
+    <h2>Query Airlines</h2>
+    <button id="queryAirlinesButton">Get Airlines</button>
+    <ul id="airlinesList"></ul>
+</div>
+<div>
+    <h2>Query Airports</h2>
+    <button id="queryAirportsButton">Get Airports</button>
+    <ul id="airportsList"></ul>
 </div>
 <div>
     <h2>Create Flight</h2>
@@ -23,6 +34,5 @@
     <button id="createFlightButton">Create Flight</button>
     <p id="createFlightResult"></p>
 </div>
-<script src="client.js"></script>
 </body>
 </html>
