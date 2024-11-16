@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>GraphQL Client</title>
+    <script src="https://unpkg.com/graphql-request@latest/dist/graphql-request.min.js"></script>
 </head>
 <body>
-
+<h1>GraphQL Client</h1>
+<div>
+    <h2>Query Flights</h2>
+    <button id="queryFlightsButton">Get Flights</button>
+    <ul id="flightsList"></ul>
+</div>
+<div>
+    <h2>Create Flight</h2>
+    <input type="text" id="flightNumber" placeholder="Flight Number">
+    <input type="text" id="airlineId" placeholder="Airline ID">
+    <input type="text" id="departureAirportId" placeholder="Departure Airport ID">
+    <input type="text" id="arrivalAirportId" placeholder="Arrival Airport ID">
+    <input type="datetime-local" id="departureTime" placeholder="Departure Time">
+    <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
+    <button id="createFlightButton">Create Flight</button>
+    <p id="createFlightResult"></p>
+</div>
+<script src="client.js"></script>
 </body>
 </html>
