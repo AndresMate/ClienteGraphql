@@ -4,35 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GraphQL Client</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="client.js" defer></script>
 </head>
 <body>
 <h1>GraphQL Client</h1>
-<div>
-    <h2>Query Flights</h2>
-    <button id="queryFlightsButton">Get Flights</button>
-    <ul id="flightsList"></ul>
+<div class="container">
+    <div>
+        <h2>Query Flights</h2>
+        <button id="queryFlightsButton">Get Flights</button>
+        <ul id="flightsList"></ul>
+    </div>
+    <div>
+        <h2>Query Airlines</h2>
+        <button id="queryAirlinesButton">Get Airlines</button>
+        <ul id="airlinesList"></ul>
+    </div>
+    <div>
+        <h2>Query Airports</h2>
+        <button id="queryAirportsButton">Get Airports</button>
+        <ul id="airportsList"></ul>
+    </div>
 </div>
-<div>
-    <h2>Query Airlines</h2>
-    <button id="queryAirlinesButton">Get Airlines</button>
-    <ul id="airlinesList"></ul>
-</div>
-<div>
-    <h2>Query Airports</h2>
-    <button id="queryAirportsButton">Get Airports</button>
-    <ul id="airportsList"></ul>
-</div>
-<div>
-    <h2>Create Flight</h2>
-    <input type="text" id="flightNumber" placeholder="Flight Number">
-    <input type="text" id="airlineId" placeholder="Airline ID">
-    <input type="text" id="departureAirportId" placeholder="Departure Airport ID">
-    <input type="text" id="arrivalAirportId" placeholder="Arrival Airport ID">
-    <input type="datetime-local" id="departureTime" placeholder="Departure Time">
-    <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
-    <button id="createFlightButton">Create Flight</button>
-    <p id="createFlightResult"></p>
+<div class="container">
+    <div class="full-width">
+        <h2>Create Flight</h2>
+        <input type="text" id="flightNumber" placeholder="Flight Number">
+        <input type="text" id="airlineId" placeholder="Airline ID">
+        <input type="text" id="departureAirportId" placeholder="Departure Airport ID">
+        <input type="text" id="arrivalAirportId" placeholder="Arrival Airport ID">
+        <input type="datetime-local" id="departureTime" placeholder="Departure Time">
+        <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
+        <button id="createFlightButton">Create Flight</button>
+        <p id="createFlightResult"></p>
+    </div>
 </div>
 </body>
 </html>
