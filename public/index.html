@@ -9,35 +9,54 @@
 </head>
 <body>
 <h1>GraphQL Client</h1>
-<div class="container">
-    <div>
-        <h2>Query Flights</h2>
-        <button id="queryFlightsButton">Get Flights</button>
-        <ul id="flightsList"></ul>
-    </div>
-    <div>
-        <h2>Query Airlines</h2>
-        <button id="queryAirlinesButton">Get Airlines</button>
-        <ul id="airlinesList"></ul>
-    </div>
-    <div>
-        <h2>Query Airports</h2>
-        <button id="queryAirportsButton">Get Airports</button>
-        <ul id="airportsList"></ul>
-    </div>
+<div class="container full-width">
+    <h2>Create Flight</h2>
+    <input type="text" id="flightNumber" placeholder="Flight Number">
+    <input type="text" id="airlineId" placeholder="Airline ID">
+    <input type="text" id="departureAirportId" placeholder="Departure Airport ID">
+    <input type="text" id="arrivalAirportId" placeholder="Arrival Airport ID">
+    <input type="datetime-local" id="departureTime" placeholder="Departure Time">
+    <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
+    <button id="createFlightButton">Create Flight</button>
+    <p id="createFlightResult"></p>
 </div>
-<div class="container">
-    <div class="full-width">
-        <h2>Create Flight</h2>
-        <input type="text" id="flightNumber" placeholder="Flight Number">
-        <input type="text" id="airlineId" placeholder="Airline ID">
-        <input type="text" id="departureAirportId" placeholder="Departure Airport ID">
-        <input type="text" id="arrivalAirportId" placeholder="Arrival Airport ID">
-        <input type="datetime-local" id="departureTime" placeholder="Departure Time">
-        <input type="datetime-local" id="arrivalTime" placeholder="Arrival Time">
-        <button id="createFlightButton">Create Flight</button>
-        <p id="createFlightResult"></p>
+
+<div class="container full-width">
+    <h2>Filter Flights</h2>
+    <div class="filter-container">
+        <select id="flightFilter">
+            <option value="">Select Flight</option>
+        </select>
+        <select id="airlineFilter">
+            <option value="">Select Airline</option>
+        </select>
+        <select id="statusFilter">
+            <option value="">Select Status</option>
+            <option value="scheduled">Scheduled</option>
+            <option value="departed">Departed</option>
+            <option value="arrived">Arrived</option>
+            <option value="cancelled">Cancelled</option>
+        </select>
     </div>
+    <button id="filterButton">Filter</button>
+</div>
+
+<div class="container full-width">
+    <h2>Flights</h2>
+    <table id="flightsTable">
+        <thead>
+            <tr>
+                <th>Hora de Salida</th>
+                <th>Destino</th>
+                <th>Aerolinea</th>
+                <th>ID del vuelo</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Flight rows will be inserted here dynamically -->
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
