@@ -11,11 +11,6 @@ body {
     min-height: 100vh;
 }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
 h2 {
     color: #555;
     margin-bottom: 10px;
@@ -35,7 +30,49 @@ h2 {
     width: 100%;
 }
 
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 48%;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: auto;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #007bff;
     color: white;
     border: none;
@@ -50,23 +87,20 @@ button:hover {
     background-color: #0056b3;
 }
 
-input, select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.button-icon {
+    margin-right: 10px;
 }
 
 .filter-container {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Alinea verticalmente el botón con los selectores */
     width: 100%;
+    gap: 10px; /* Añade un espacio entre los selectores y el botón */
 }
 
 .filter-container select {
     flex: 1;
-    margin: 0 5px;
     width: auto;
 }
 

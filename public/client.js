@@ -43,6 +43,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
 
+    const queryFindAirportByCode =`
+        query($code: String!){
+            findAirportByCode(code: $code) {
+                id
+                name
+                code
+            }
+        }
+      }    
+    `;
+    
     // Function to send GraphQL requests
     async function sendGraphQLRequest(query, variables = {}) {
         const response = await fetch(endpoint, {
@@ -67,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const queryAirlinesButton = document.getElementById('queryAirlinesButton');
     const airlinesList = document.getElementById('airlinesList');
     const queryAirportsButton = document.getElementById('queryAirportsButton');
-    const airportsList = document.getElementById('airportsList');
+    const airportsList = document.getElementById('departureAirportId');
     const createFlightButton = document.getElementById('createFlightButton');
     const createFlightResult = document.getElementById('createFlightResult');
     const filterButton = document.getElementById('filterButton');
@@ -86,8 +97,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    async function fetchAirports() {
+        try {
+            // Consultar los aeropuertos
+            const airportsData = await sendGraphQLRequest(queryAirports);
+            return airportsData.airports; // Retornar la lista de aeropuertos
+        } catch (error) {
+            console.error('Error fetching airports:', error);
+            return []; // Retornar una lista vacía en caso de error
+        }
+    }
+
+    fetchAirports().then(airports => {
+        console.log('Lista de aeropuertos:', airports);
+    });
+    
+    
+    async function populateAirportSelect() {
+        try {
+            // Obtener la lista de aeropuertos
+            const airports = await fetchAirports();
+    
+            // Ubicar el select por su ID
+            const selectElement = document.getElementById('departureAirportId');
+            if (!selectElement) {
+                console.error(`Select element with ID "${departureAirportId}" not found.`);
+                return;
+            }
+    
+            // Limpiar el contenido previo del select
+            selectElement.innerHTML = '<option value="">Select an Airport</option>';
+    
+            // Agregar cada aeropuerto como opción
+            airports.forEach(airport => {
+                const option = document.createElement('option');
+                option.value = airport.id; // Usar el ID del aeropuerto como valor
+                option.textContent = airport.name; // Mostrar el nombre del aeropuerto
+                selectElement.appendChild(option);
+            });
+        } catch (error) {
+            console.error('Error populating airport select:', error);
+        }
+    }
+    
+    
+    
+
     function displayFlights(flights) { flightsTable.innerHTML = ''; flights.forEach(flight => { 
-        const departureTime = new Date(flight.departureTime).toLocaleTimeString(); 
+        const departureTime = new Date(flight.departureTime).toLocaleTimeString() 
         const row = document.createElement('tr'); 
         row.innerHTML = ` <td>${departureTime}</td> 
                           <td>${flight.arrivalAirport}</td> 
@@ -148,4 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fetch and display initial flights data
     fetchAndDisplayFlights();
+
+    populateAirportSelect();
+
 });
+
+
+
